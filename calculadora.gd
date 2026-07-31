@@ -1,42 +1,29 @@
 extends Control
-
 @export var texto : LineEdit
+var calculado : bool = false
 
-func calcula():
-	pass
+func calcular():
+	var expressao = Expression.new()
+	expressao.parse(texto.text)
+	var novo_texto = str(expressao.execute())
+	if novo_texto == "<null>":
+		novo_texto = "Expressão inválida!"
+	texto.text = novo_texto
+	calculado = true
 
+func adicionar_numero(num:int) -> void:
+	if calculado:
+		texto.clear()
+	adicionar_caractere(str(num))
 
-func _on_button_1_pressed() -> void:
-	texto.text += str(1)
-func _on_button_2_pressed() -> void:
-	texto.text += str(2)
-func _on_button_3_pressed() -> void:
-	texto.text += str(3)
-func _on_button_4_pressed() -> void:
-	texto.text += str(4)
-func _on_button_5_pressed() -> void:
-	texto.text += str(5)
-func _on_button_6_pressed() -> void:
-	texto.text += str(6)
-func _on_button_7_pressed() -> void:
-	texto.text += str(7)
-func _on_button_8_pressed() -> void:
-	texto.text += str(8)
-func _on_button_9_pressed() -> void:
-	texto.text += str(9)
-func _on_button_0_pressed() -> void:
-	texto.text += str(0)
-func _on_button_igual_pressed() -> void:
-	texto.text = str(int(texto.text))
-func _on_button_mais_pressed() -> void:
-	texto.text += "+"
-func _on_button_menos_pressed() -> void:
-	texto.text += "-"
-func _on_button_vezes_pressed() -> void:
-	texto.text += "*"
-func _on_button_divide_pressed() -> void:
-	texto.text += "/"
+func adicionar_caractere(caractere: String) -> void:
+	if calculado:
+		calculado = false
+	if texto.text == "Expressão inválida!":
+		texto.clear()
+	texto.text += caractere
+
 func _on_button_c_pressed() -> void:
 	texto.clear()
 func _on_button_apaga_pressed() -> void:
-	texto.delete_text(texto.text.length() - 1, texto.text.length())
+	texto.text = texto.text.left(-1)
