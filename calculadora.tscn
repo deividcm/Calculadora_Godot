@@ -1,0 +1,182 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbm5mc3l6xe8s"]
+
+[ext_resource type="Script" path="res://calculadora.gd" id="1_y5wgn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8r5eh"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[node name="Control" type="Control" node_paths=PackedStringArray("texto")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y5wgn")
+texto = NodePath("Texto")
+
+[node name="Texto" type="LineEdit" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 128.0
+theme_override_styles/read_only = SubResource("StyleBoxFlat_8r5eh")
+alignment = 2
+editable = false
+
+[node name="Button1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 168.0
+offset_right = 128.0
+offset_bottom = 208.0
+text = "1"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 168.0
+offset_right = 192.0
+offset_bottom = 208.0
+text = "2"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 168.0
+offset_right = 256.0
+offset_bottom = 208.0
+text = "3"
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 208.0
+offset_right = 128.0
+offset_bottom = 248.0
+text = "4"
+
+[node name="Button5" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 208.0
+offset_right = 192.0
+offset_bottom = 248.0
+text = "5"
+
+[node name="Button6" type="Button" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 208.0
+offset_right = 256.0
+offset_bottom = 248.0
+text = "6"
+
+[node name="Button7" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 248.0
+offset_right = 128.0
+offset_bottom = 288.0
+text = "7"
+
+[node name="Button8" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 248.0
+offset_right = 192.0
+offset_bottom = 288.0
+text = "8"
+
+[node name="Button9" type="Button" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 248.0
+offset_right = 256.0
+offset_bottom = 288.0
+text = "9"
+
+[node name="Button0" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 288.0
+offset_right = 192.0
+offset_bottom = 328.0
+text = "0
+"
+
+[node name="Button=" type="Button" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 288.0
+offset_right = 320.0
+offset_bottom = 328.0
+text = "=
+"
+
+[node name="Button+" type="Button" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 208.0
+offset_right = 320.0
+offset_bottom = 248.0
+text = "+"
+
+[node name="Button-" type="Button" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 248.0
+offset_right = 320.0
+offset_bottom = 288.0
+text = "-"
+
+[node name="Button*" type="Button" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 288.0
+offset_right = 256.0
+offset_bottom = 328.0
+text = "*
+"
+
+[node name="Button\\" type="Button" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 168.0
+offset_right = 320.0
+offset_bottom = 208.0
+text = "/
+"
+
+[node name="ButtonC" type="Button" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 256.0
+offset_bottom = 168.0
+text = "C"
+
+[node name="Button<X" type="Button" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 128.0
+offset_right = 320.0
+offset_bottom = 168.0
+text = "<X"
+
+[connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="Button0" to="." method="_on_button_0_pressed"]
+[connection signal="pressed" from="Button=" to="." method="_on_button_igual_pressed"]
+[connection signal="pressed" from="Button+" to="." method="_on_button_mais_pressed"]
+[connection signal="pressed" from="Button-" to="." method="_on_button_menos_pressed"]
+[connection signal="pressed" from="Button*" to="." method="_on_button_vezes_pressed"]
+[connection signal="pressed" from="Button\\" to="." method="_on_button_divide_pressed"]
+[connection signal="pressed" from="ButtonC" to="." method="_on_button_c_pressed"]
+[connection signal="pressed" from="Button<X" to="." method="_on_button_apaga_pressed"]
