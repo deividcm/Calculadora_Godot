@@ -3,22 +3,23 @@ extends Control
 var calculado : bool = false
 
 func calcular():
-	var expressao = Expression.new()
-	expressao.parse(texto.text)
-	var novo_texto = str(expressao.execute())
-	if novo_texto == "<null>":
+	var expressao: Expression = Expression.new()
+	var novo_texto: String
+	if expressao.parse(texto.text) == OK:
+		novo_texto = str(expressao.execute())
+	else:
 		novo_texto = "Expressão inválida!"
 	texto.text = novo_texto
 	calculado = true
 
-func adicionar_numero(num:int) -> void:
+func adicionar_numero(num: int) -> void:
 	if calculado:
 		texto.clear()
+
 	adicionar_caractere(str(num))
 
 func adicionar_caractere(caractere: String) -> void:
-	if calculado:
-		calculado = false
+	calculado = false
 	if texto.text == "Expressão inválida!":
 		texto.clear()
 	texto.text += caractere
